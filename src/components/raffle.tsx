@@ -179,7 +179,9 @@ const Trading = () => {
               Buy
             </Button>
           ) : (
-            <w3m-button />
+            <div className="flex items-center justify-center">
+              <w3m-button />
+            </div>
           )}
         </article>
       </div>
