@@ -124,7 +124,7 @@ const Trading = () => {
         <img
           src="/assets/images/101.png"
           alt=""
-          className="max-w-[400px] max-h-[400px] object-contain mx-auto rounded-lg"
+          className="w-full max-w-[400px] max-h-[400px] object-contain mx-auto rounded-lg"
         />
         <article className="flex flex-col gap-6 w-full text-sm">
           <div className="flex justify-between gap-2">
@@ -164,8 +164,7 @@ const Trading = () => {
           <div className="flex justify-between gap-2">
             <p>Winner:</p>
             {raffleWinner ? (
-              //@ts-ignore
-              <p>{raffleWinner}</p>
+              <p>{(raffleWinner as string).substring(0, 20) + "..."}</p>
             ) : (
               <p>Not yet determined</p>
             )}
