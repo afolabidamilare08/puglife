@@ -20,6 +20,7 @@ const Trading = () => {
   const [loadingTx, setLoadingTx] = useState(false);
   const [transactionSuccess, setTransactionSuccess] = useState(false);
   const [remainingTime, setRemainingTime] = useState<number>(0);
+  const [winningPercent, setWinningPercent] = useState(0);
   const { address } = useAccount();
 
   const { writeContractAsync, data } = useWriteContract();
@@ -38,6 +39,12 @@ const Trading = () => {
     abi: contractAbi,
     functionName: "getWinner",
   });
+  const { data: rafflePlayers, refetch: refetchRafflePlayers } =
+    useReadContract({
+      address: contractAddress,
+      abi: contractAbi,
+      functionName: "getPlayers",
+    });
   const { data: raffleInterval, refetch: refetchRaffleInterval } =
     useReadContract({
       address: contractAddress,
@@ -142,7 +149,11 @@ const Trading = () => {
                   // Check if the value is either empty, a single decimal point, or a valid number (integer or decimal)
                   if (value === "" || /^[0-9]+\.?([0-9]+)?$/.test(value)) {
                     // Directly pass the value without converting it to Number
-                    setValue(value);
+                    if (Number(value) >= 100) {
+                      setValue("100");
+                    } else {
+                      setValue(value);
+                    }
                   }
                 }}
                 className="w-[50px] text-black focus:border-0 focus-within:outline-0 focus-within:ring-0 focus-within:border-0"
@@ -153,7 +164,9 @@ const Trading = () => {
           <hr className="border-[#ffd700] " />
           <div className="flex justify-between gap-2">
             <p>Total Entries Sold:</p>
-            <p>23 / 10000</p>
+            <p>
+              {Array.isArray(rafflePlayers) ? rafflePlayers.length : 0} / 10000
+            </p>
           </div>
           <hr className="border-[#ffd700] " />
           <div className="flex justify-between gap-2">
