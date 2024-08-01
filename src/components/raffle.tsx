@@ -89,6 +89,15 @@ const Trading = () => {
     );
   };
 
+  useEffect(() => {
+    if (value && Array.isArray(rafflePlayers)) {
+      const totalEntries = rafflePlayers.length;
+      const yourEntries = Number(value);
+      const winningPercent = (yourEntries / 10000) * 100;
+      setWinningPercent(winningPercent);
+    }
+  }, [value, rafflePlayers]);
+
   //   useEffect(() => {
   //     console.log({ raffleInterval });
   //     let intervalT: NodeJS.Timeout | undefined;
@@ -171,7 +180,7 @@ const Trading = () => {
           <hr className="border-[#ffd700] " />
           <div className="flex justify-between gap-2">
             <p>Your chance of winning:</p>
-            <p>0%</p>
+            <p>{winningPercent}%</p>
           </div>
           <hr className="border-[#ffd700] " />
           <div className="flex justify-between gap-2">
