@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 type Props = {};
@@ -8,33 +9,76 @@ const Footer = (props: Props) => {
       <section>
         <p className="text-white">About us</p>
         <ul>
-          <li>Dreamfinity LLC.</li>
-          <li>Team</li>
-          <li>Terms of Service</li>
+          <Link href="https://www.dreamfinity.io/" target="_blank">
+            <li>Dreamfinity LLC.</li>
+          </Link>
+          <Link
+            href="https://dreamfinity.gitbook.io/pug-life-by-dreamfinity/overview/dreamfinity/team"
+            target="_blank"
+          >
+            <li>Team</li>
+          </Link>
+          <Link
+            href="https://dreamfinity.gitbook.io/pug-life-by-dreamfinity/fundamentals/puglife-terms-of-service"
+            target="_blank"
+          >
+            <li>Terms of Service</li>
+          </Link>
         </ul>
       </section>
       <section>
         <p className="text-white">Contact us</p>
         <ul>
-          <li>Discord</li>
-          <li>Telegram</li>
-          <li>E-Mail</li>
+          <Link href="https://www.discord.gg/puglife" target="_blank">
+            <li>Discord</li>
+          </Link>
+          <Link href="https://t.me/+UiZzaCzPaqU0YTFi" target="_blank">
+            <li>Telegram</li>
+          </Link>
+          <Link href="mailto:puglifegame@gmail.com" target="_blank">
+            <li>E-Mail</li>
+          </Link>
         </ul>
       </section>
       <section>
         <p className="text-white">FAQ</p>
+
         <ul>
-          <li>How To Play</li>
-          <li>Video</li>
+          <Link
+            href="https://www.youtube.com/watch?v=4f7GUHL6zCQ"
+            target="_blank"
+          >
+            <li>How To Play</li>
+          </Link>
+          <Link
+            href="https://www.youtube.com/watch?v=4f7GUHL6zCQ"
+            target="_blank"
+          >
+            <li>Video</li>
+          </Link>
         </ul>
       </section>
       <section>
         <p className="text-white">Social Media</p>
         <ul>
-          <li>Twitter</li>
-          <li>Gitbook</li>
-          <li>Youtube</li>
-          <li>Discord</li>
+          <Link href="https://twitter.com/puglifegame" target="_blank">
+            <li>Twitter</li>
+          </Link>
+          <Link
+            href="https://dreamfinity.gitbook.io/pug-life-by-dreamfinity"
+            target="_blank"
+          >
+            <li>Gitbook</li>
+          </Link>
+          <Link
+            href="https://www.youtube.com/channel/UCeUUKx3_T_aMlqWb2b0q3OA"
+            target="_blank"
+          >
+            <li>Youtube</li>
+          </Link>
+          <Link href="https://www.discord.gg/puglife" target="_blank">
+            <li>Discord</li>
+          </Link>
         </ul>
       </section>
     </footer>
