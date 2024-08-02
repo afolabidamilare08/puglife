@@ -14,6 +14,7 @@ export const metadata = {
   url:
     "http://localhost:3000" ||
     "http://localhost:3001" ||
+    "https://puglife.vercel.app/" ||
     "https://web3modal.com", // origin must match your domain & subdomain
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };

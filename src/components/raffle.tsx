@@ -74,6 +74,7 @@ const Trading = () => {
         onSuccess(data, variables, context) {
           setLoadingTx(false);
           setTransactionSuccess(true);
+          refetchRafflePlayers();
         },
         onError(error) {
           setLoadingTx(false);
@@ -98,6 +99,14 @@ const Trading = () => {
     }
   }, [value, rafflePlayers]);
 
+  useEffect(() => {
+    refetchEntryFee();
+    // refetchRaffleInterval()
+    refetchRafflePlayers();
+    refetchRaffleState();
+    refetchRaffleWinner();
+    // refetchTimeElapsed();
+  }, [address]);
   //   useEffect(() => {
   //     console.log({ raffleInterval });
   //     let intervalT: NodeJS.Timeout | undefined;

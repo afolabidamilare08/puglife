@@ -178,8 +178,19 @@ export const contractAbi = [
     type: "event",
   },
   {
-    inputs: [],
-    name: "sendPrize",
+    inputs: [
+      {
+        internalType: "contract IERC721",
+        name: "_nftPrize",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "_nftTokenId",
+        type: "uint256",
+      },
+    ],
+    name: "setNftPrize",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -474,6 +485,32 @@ export const contractAbi = [
     type: "function",
   },
   {
+    inputs: [],
+    name: "nftPrize",
+    outputs: [
+      {
+        internalType: "contract IERC721",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "nftTokenId",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [
       {
         internalType: "uint256",
@@ -519,4 +556,4 @@ export const contractAbi = [
     type: "function",
   },
 ];
-export const contractAddress = "0xaaCf2381Ec647b8F2A055278ae3c34a1d248d324";
+export const contractAddress = "0x496Cb80346A90B205A869236f1641C33fF528165";
