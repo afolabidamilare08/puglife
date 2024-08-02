@@ -199,6 +199,19 @@ export const contractAbi = [
     inputs: [
       {
         internalType: "address",
+        name: "_recipient",
+        type: "address",
+      },
+    ],
+    name: "setRecipient",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
         name: "_airnode",
         type: "address",
       },
@@ -243,6 +256,13 @@ export const contractAbi = [
     ],
     name: "WinnerPicked",
     type: "event",
+  },
+  {
+    inputs: [],
+    name: "withdrawFees",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
     inputs: [],
@@ -531,6 +551,19 @@ export const contractAbi = [
   },
   {
     inputs: [],
+    name: "recipient",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "sponsorWallet",
     outputs: [
       {
@@ -547,7 +580,7 @@ export const contractAbi = [
     name: "winner",
     outputs: [
       {
-        internalType: "address",
+        internalType: "address payable",
         name: "",
         type: "address",
       },
