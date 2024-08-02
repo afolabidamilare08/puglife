@@ -2,7 +2,7 @@
 
 import { contractAbi, contractAddress } from "@/contract";
 import React, { useEffect, useState } from "react";
-import { formatUnits } from "viem";
+import { formatUnits, zeroAddress } from "viem";
 import {
   useAccount,
   useReadContract,
@@ -75,11 +75,11 @@ const Trading = () => {
           setLoadingTx(false);
           setTransactionSuccess(true);
           refetchRafflePlayers();
+          console.log({ dataFromSucess: data });
         },
         onError(error) {
           setLoadingTx(false);
           toast.error((error as BaseError)?.shortMessage, {
-            className: "window raised-panel text-sm p-2 border-0",
             duration: 7000,
             position: "top-center",
           });
@@ -194,7 +194,7 @@ const Trading = () => {
           <hr className="border-[#ffd700] " />
           <div className="flex justify-between gap-2">
             <p>Winner:</p>
-            {raffleWinner ? (
+            {raffleWinner && raffleWinner !== zeroAddress ? (
               <p>{(raffleWinner as string).substring(0, 20) + "..."}</p>
             ) : (
               <p>Not yet determined</p>
