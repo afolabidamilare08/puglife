@@ -75,10 +75,10 @@ const Trading = () => {
           setLoadingTx(false);
           setTransactionSuccess(true);
           refetchRafflePlayers();
-          console.log({ dataFromSucess: data });
         },
         onError(error) {
           setLoadingTx(false);
+          refetchRafflePlayers();
           toast.error((error as BaseError)?.shortMessage, {
             duration: 7000,
             position: "top-center",

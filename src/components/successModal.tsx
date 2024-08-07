@@ -21,7 +21,7 @@ const TransactionSuccess = ({ open, setOpen, hash }: Props) => {
         </p>
         <div className="mt-2">
           <Link
-            href={`https://testnet.blastscan.io/tx/${hash}`}
+            href={`https://sepolia.blastexplorer.io/tx/${hash}`}
             target="_blank"
           >
             <Button>Visit Explorer</Button>
