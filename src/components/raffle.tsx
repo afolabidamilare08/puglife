@@ -2,7 +2,7 @@
 
 import { contractAbi, contractAddress } from "@/contract";
 import React, { useEffect, useState } from "react";
-import { formatUnits, zeroAddress } from "viem";
+import { formatUnits, parseEther, parseUnits, zeroAddress } from "viem";
 import {
   useAccount,
   useReadContract,
@@ -66,9 +66,9 @@ const Trading = () => {
       {
         abi: contractAbi,
         address: contractAddress,
-        functionName: "enterRaffle",
-        args: [],
-        value: BigInt(amount),
+        functionName: "enterRaffleMultipleTimes",
+        args: [value],
+        value: parseEther(amount.toString()),
       },
       {
         onSuccess(data, variables, context) {

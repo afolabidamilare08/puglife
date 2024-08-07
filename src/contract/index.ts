@@ -3,90 +3,6 @@ export const contractAbi = [
     inputs: [
       {
         internalType: "uint256",
-        name: "_entryFee",
-        type: "uint256",
-      },
-    ],
-    name: "changeEntryFee",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_interval",
-        type: "uint256",
-      },
-    ],
-    name: "changeInterval",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_manager",
-        type: "address",
-      },
-    ],
-    name: "changeManager",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "checkUpkeep",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "enterRaffle",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "numberOfEntries",
-        type: "uint256",
-      },
-    ],
-    name: "enterRaffleMultipleTimes",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "bytes32",
-        name: "requestId",
-        type: "bytes32",
-      },
-      {
-        internalType: "bytes",
-        name: "data",
-        type: "bytes",
-      },
-    ],
-    name: "fulfillUint256",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
         name: "_interval",
         type: "uint256",
       },
@@ -178,60 +94,6 @@ export const contractAbi = [
     type: "event",
   },
   {
-    inputs: [
-      {
-        internalType: "contract IERC721",
-        name: "_nftPrize",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "_nftTokenId",
-        type: "uint256",
-      },
-    ],
-    name: "setNftPrize",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_recipient",
-        type: "address",
-      },
-    ],
-    name: "setRecipient",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_airnode",
-        type: "address",
-      },
-      {
-        internalType: "bytes32",
-        name: "_endpointIdUint256",
-        type: "bytes32",
-      },
-      {
-        internalType: "address",
-        name: "_sponsorWallet",
-        type: "address",
-      },
-    ],
-    name: "setRequestParameters",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
     anonymous: false,
     inputs: [
       {
@@ -256,13 +118,6 @@ export const contractAbi = [
     ],
     name: "WinnerPicked",
     type: "event",
-  },
-  {
-    inputs: [],
-    name: "withdrawFees",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
   },
   {
     inputs: [],
@@ -304,6 +159,52 @@ export const contractAbi = [
     type: "function",
   },
   {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_entryFee",
+        type: "uint256",
+      },
+    ],
+    name: "changeEntryFee",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_interval",
+        type: "uint256",
+      },
+    ],
+    name: "changeInterval",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_manager",
+        type: "address",
+      },
+    ],
+    name: "changeManager",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "checkUpkeep",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     inputs: [],
     name: "endpointIdUint256",
     outputs: [
@@ -314,6 +215,26 @@ export const contractAbi = [
       },
     ],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "enterRaffle",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "numberOfEntries",
+        type: "uint256",
+      },
+    ],
+    name: "enterRaffleMultipleTimes",
+    outputs: [],
+    stateMutability: "payable",
     type: "function",
   },
   {
@@ -346,6 +267,24 @@ export const contractAbi = [
       },
     ],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "requestId",
+        type: "bytes32",
+      },
+      {
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
+      },
+    ],
+    name: "fulfillUint256",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -563,6 +502,60 @@ export const contractAbi = [
     type: "function",
   },
   {
+    inputs: [
+      {
+        internalType: "contract IERC721",
+        name: "_nftPrize",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "_nftTokenId",
+        type: "uint256",
+      },
+    ],
+    name: "setNftPrize",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_recipient",
+        type: "address",
+      },
+    ],
+    name: "setRecipient",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_airnode",
+        type: "address",
+      },
+      {
+        internalType: "bytes32",
+        name: "_endpointIdUint256",
+        type: "bytes32",
+      },
+      {
+        internalType: "address",
+        name: "_sponsorWallet",
+        type: "address",
+      },
+    ],
+    name: "setRequestParameters",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     inputs: [],
     name: "sponsorWallet",
     outputs: [
@@ -588,5 +581,12 @@ export const contractAbi = [
     stateMutability: "view",
     type: "function",
   },
+  {
+    inputs: [],
+    name: "withdrawFees",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
 ];
-export const contractAddress = "0x6983cd54D69a24cf49fB1aDdF1E839df4DE0cADA";
+export const contractAddress = "0x5719eF4b56E2c3F277160Acf16e907027D87ddDb";
