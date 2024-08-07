@@ -68,7 +68,7 @@ const Trading = () => {
         address: contractAddress,
         functionName: "enterRaffleMultipleTimes",
         args: [value],
-        value: parseEther(amount.toString()),
+        value: BigInt(amount),
       },
       {
         onSuccess(data, variables, context) {
@@ -143,7 +143,7 @@ const Trading = () => {
       <p className="text-[#ffd700] text-6xl font-bold my-5">Trading Center</p>
       <p>GenesisPugs #101</p>
       <p className="text-2xl text-primary font-semibold">
-        Raffle State : {Number(raffleState) === 1 ? "Open" : "Closed"}
+        Raffle State : {Number(raffleState) === 0 ? "Open" : "Closed"}
       </p>
       <div className=" border border-[#ffd700] rounded-2xl p-5 lg:p-10 flex flex-col lg:flex-row gap-5 lg:items-center mt-8">
         <img
