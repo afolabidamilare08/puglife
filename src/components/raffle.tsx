@@ -8,6 +8,7 @@ import {
   useReadContract,
   useWriteContract,
   BaseError,
+  useWaitForTransactionReceipt,
 } from "wagmi";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
@@ -18,6 +19,7 @@ import TransactionSuccess from "./successModal";
 const Trading = () => {
   const [value, setValue] = useState<string | undefined>("");
   const [loadingTx, setLoadingTx] = useState(false);
+  const [txHash, setTxHash] = useState<`0x${string}` | undefined>();
   const [transactionSuccess, setTransactionSuccess] = useState(false);
   const [remainingTime, setRemainingTime] = useState<number>(0);
   const [winningPercent, setWinningPercent] = useState(0);
@@ -56,8 +58,15 @@ const Trading = () => {
     abi: contractAbi,
     functionName: "getInterval",
   });
-
+  const { isSuccess: isRaffleSuccess, isLoading: isCheckingRaffle } =
+    useWaitForTransactionReceipt({
+      hash: txHash,
+      query: {
+        enabled: !!txHash,
+      },
+    });
   const handleBuyTicket = async () => {
+    setTxHash(undefined);
     setLoadingTx(true);
     setTransactionSuccess(false);
 
@@ -74,11 +83,11 @@ const Trading = () => {
         onSuccess(data, variables, context) {
           setLoadingTx(false);
           setTransactionSuccess(true);
-          refetchRafflePlayers();
+          setTxHash(data);
         },
         onError(error) {
           setLoadingTx(false);
-          refetchRafflePlayers();
+          setTxHash(undefined);
           toast.error((error as BaseError)?.shortMessage, {
             duration: 7000,
             position: "top-center",
@@ -107,6 +116,13 @@ const Trading = () => {
     refetchRaffleWinner();
     // refetchTimeElapsed();
   }, [address]);
+
+  useEffect(() => {
+    if (isRaffleSuccess && txHash && !isCheckingRaffle) {
+      refetchRafflePlayers();
+      setTxHash(undefined);
+    }
+  }, [isRaffleSuccess, isCheckingRaffle]);
   //   useEffect(() => {
   //     console.log({ raffleInterval });
   //     let intervalT: NodeJS.Timeout | undefined;
@@ -157,7 +173,7 @@ const Trading = () => {
             <p>{formatUnits((entryFee as bigint) ?? 0, 18)} ETH</p>
           </div>
           <hr className="border-[#ffd700] " />
-          <div className="flex justify-between gap-2">
+          <div className="flex justify-between gap-2 items-center">
             <p>Your Entries:</p>
             <div className="flex items-center gap-2">
               <Input
